@@ -11,6 +11,8 @@ import UIKit
 @IBDesignable
 class GraphView: UIView {
     
+    @IBInspectable private var scale: CGFloat = 50
+    
     private var axesDrawer = AxesDrawer(color: UIColor.black)
     
     // Only override draw() if you perform custom drawing.
@@ -18,7 +20,7 @@ class GraphView: UIView {
     override func draw(_ rect: CGRect) {
         // Drawing code
         
-        axesDrawer.drawAxesInRect(bounds: bounds, origin: CGPoint(x: bounds.midX, y: bounds.midY), pointsPerUnit: 1.0)
+        axesDrawer.drawAxesInRect(bounds: bounds, origin: CGPoint(x: bounds.midX, y: bounds.midY), pointsPerUnit: scale)
     }
 
 }

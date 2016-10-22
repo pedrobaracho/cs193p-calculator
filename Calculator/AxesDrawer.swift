@@ -34,13 +34,19 @@ class AxesDrawer
         self.contentScaleFactor = contentScaleFactor
     }
 
-    // this method is the heart of the AxesDrawer
-    // it draws in the current graphic context's coordinate system
-    // therefore origin and bounds must be in the current graphics context's coordinate system
+    
     // pointsPerUnit is essentially the "scale" of the axes
-    // e.g. if you wanted there to be 100 points along an axis between -1 and 1,
-    //    you'd set pointsPerUnit to 50
+    // e.g.
+    
 
+    /// this method is the heart of the AxesDrawer
+    /// it draws in the current graphic context's coordinate system
+    /// therefore origin and bounds must be in the current graphics context's coordinate system
+    ///
+    /// - parameter bounds:        bounds for the axes.
+    /// - parameter origin:        origin point
+    /// - parameter pointsPerUnit: the "scale" of the axes. If you wanted there to be 100 points along an axis between -1 and 1,
+    ///                            you'd set pointsPerUnit to 50
     func drawAxesInRect(bounds: CGRect, origin: CGPoint, pointsPerUnit: CGFloat)
     {
         UIGraphicsGetCurrentContext()!.saveGState()
