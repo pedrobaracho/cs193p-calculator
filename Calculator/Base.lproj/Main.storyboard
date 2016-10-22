@@ -38,6 +38,9 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <connections>
+                        <outlet property="graphView" destination="Ukk-LX-oJS" id="yHI-db-yKu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E95-dC-WU8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

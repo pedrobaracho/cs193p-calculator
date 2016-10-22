@@ -17,6 +17,12 @@ class GraphView: UIView {
         }
     }
     
+    var function : ((Double) -> (Double))? {
+        didSet {
+            self.setNeedsDisplay()
+        }
+    }
+    
     private var axesDrawer = AxesDrawer(color: UIColor.black)
     
     // Only override draw() if you perform custom drawing.
@@ -25,6 +31,20 @@ class GraphView: UIView {
         // Drawing code
         
         axesDrawer.drawAxesInRect(bounds: bounds, origin: CGPoint(x: bounds.midX, y: bounds.midY), pointsPerUnit: scale)
+    }
+    
+    public func changeScale(recognizer: UIPinchGestureRecognizer) {
+        switch recognizer.state {
+        case .changed, .ended:
+            scale *= recognizer.scale
+            recognizer.scale = 1.0
+        default:
+            break
+        }
+    }
+    
+    private func graphFunction() {
+        
     }
 
 }
