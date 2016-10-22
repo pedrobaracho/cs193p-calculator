@@ -11,7 +11,11 @@ import UIKit
 @IBDesignable
 class GraphView: UIView {
     
-    @IBInspectable private var scale: CGFloat = 50
+    @IBInspectable var scale: CGFloat = 100 {
+        didSet {
+            self.setNeedsDisplay()
+        }
+    }
     
     private var axesDrawer = AxesDrawer(color: UIColor.black)
     
