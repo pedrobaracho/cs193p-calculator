@@ -32,17 +32,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="scale">
                                 <real key="value" value="50"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="D7z-5q-GNd" appends="YES" id="wnj-6h-JK5"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="graphView" destination="Ukk-LX-oJS" id="yHI-db-yKu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E95-dC-WU8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="D7z-5q-GNd">
+                    <connections>
+                        <action selector="setGraphOrigin:" destination="zO2-8q-tKo" id="CuZ-h0-Ti2"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1126" y="-610"/>
         </scene>
@@ -692,6 +701,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="FYv-ZV-Ant"/>
+        <segue reference="KHj-ls-bLK"/>
     </inferredMetricsTieBreakers>
 </document>

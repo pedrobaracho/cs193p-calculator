@@ -12,8 +12,38 @@ class GraphViewController: UIViewController {
     
     @IBOutlet weak var graphView: GraphView! {
         didSet {
+            graphView.origin = CGPoint(x: graphView.bounds.midX, y: graphView.bounds.midY)
+            
             graphView.addGestureRecognizer(UIPinchGestureRecognizer(
-                target: graphView, action: #selector(graphView.changeScale(recognizer:))))
+                target: self, action: #selector(self.changeScale(recognizer:))))
+            graphView.addGestureRecognizer(UIPanGestureRecognizer(
+                target: self, action: #selector(self.moveGraph(recognizer:))))
+        }
+    }
+    
+    @IBAction func setGraphOrigin(_ sender: UITapGestureRecognizer) {
+        graphView.origin = sender.location(in: graphView)
+    }
+    
+    public func changeScale(recognizer: UIPinchGestureRecognizer) {
+        switch recognizer.state {
+        case .changed, .ended:
+            graphView.scale *= recognizer.scale
+            recognizer.scale = 1.0
+        default:
+            break
+        }
+    }
+    
+    public func moveGraph(recognizer: UIPanGestureRecognizer) {
+        let origin = graphView.origin
+        switch recognizer.state {
+        case .changed, .ended:
+            let translation = recognizer.translation(in: graphView)
+            graphView.origin = CGPoint(x: origin.x + translation.x, y: origin.y + translation.y)
+            recognizer.setTranslation(CGPoint.zero, in: graphView)
+        default:
+            break
         }
     }
 

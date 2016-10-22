@@ -11,13 +11,19 @@ import UIKit
 @IBDesignable
 class GraphView: UIView {
     
-    @IBInspectable var scale: CGFloat = 100 {
+    @IBInspectable public var scale: CGFloat = 50 {
         didSet {
             self.setNeedsDisplay()
         }
     }
     
-    var function : ((Double) -> (Double))? {
+    public var origin: CGPoint = CGPoint.zero {
+        didSet {
+            self.setNeedsDisplay()
+        }
+    }
+    
+    public var graphFunction : ((Double) -> (Double))? {
         didSet {
             self.setNeedsDisplay()
         }
@@ -30,20 +36,15 @@ class GraphView: UIView {
     override func draw(_ rect: CGRect) {
         // Drawing code
         
-        axesDrawer.drawAxesInRect(bounds: bounds, origin: CGPoint(x: bounds.midX, y: bounds.midY), pointsPerUnit: scale)
+        drawAxes()
+        drawGraph()
     }
     
-    public func changeScale(recognizer: UIPinchGestureRecognizer) {
-        switch recognizer.state {
-        case .changed, .ended:
-            scale *= recognizer.scale
-            recognizer.scale = 1.0
-        default:
-            break
-        }
+    private func drawAxes() {
+        axesDrawer.drawAxesInRect(bounds: bounds, origin: origin, pointsPerUnit: scale)
     }
     
-    private func graphFunction() {
+    private func drawGraph() {
         
     }
 
