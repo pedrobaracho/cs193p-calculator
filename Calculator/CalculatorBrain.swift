@@ -13,7 +13,7 @@ class CalculatorBrain {
     fileprivate enum Operation {
         case constant(Double)
         case unaryOperation((Double) -> (Double, String?))
-        case binaryOperation((Double, Double) -> (Double, String?))
+        case binaryOperation ((Double, Double) -> (Double, String?))
         case equals
         case percent
         case void(() -> Double)
