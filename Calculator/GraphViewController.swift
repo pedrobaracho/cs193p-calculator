@@ -18,6 +18,12 @@ class GraphViewController: UIViewController {
                 target: self, action: #selector(self.changeScale(recognizer:))))
             graphView.addGestureRecognizer(UIPanGestureRecognizer(
                 target: self, action: #selector(self.moveGraph(recognizer:))))
+            
+            // graphView.graphFunction = { $0 }
+            // graphView.graphFunction = { $0 + 10 }
+            // graphView.graphFunction = { pow(2, $0) }
+            graphView.graphFunction = { $0*$0 - 5 * $0 + 3 }
+            // graphView.graphFunction = sin
         }
     }
     
