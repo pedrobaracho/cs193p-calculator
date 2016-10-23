@@ -10,6 +10,22 @@ import UIKit
 
 class GraphViewController: UIViewController {
     
+    private var brain = CalculatorBrain()
+    public var program: CalculatorBrain.PropertyList? {
+        didSet {
+            /*graphView.functionLabel?.text? = ""
+            if let arrayOfOps = program as? [CalculatorBrain.PropertyList] {
+                for i in arrayOfOps {
+                    if let op = i as? String {
+                        graphView.functionLabel.text? += op + " "
+                    }
+                }
+             
+            }
+ */
+        }
+    }
+    
     @IBOutlet weak var graphView: GraphView! {
         didSet {
             graphView.origin = CGPoint(x: graphView.bounds.midX, y: graphView.bounds.midY)
@@ -19,19 +35,27 @@ class GraphViewController: UIViewController {
             graphView.addGestureRecognizer(UIPanGestureRecognizer(
                 target: self, action: #selector(self.moveGraph(recognizer:))))
             
-            // graphView.graphFunction = { $0 }
-            // graphView.graphFunction = { $0 + 10 }
-            // graphView.graphFunction = { pow(2, $0) }
-            graphView.graphFunction = { $0*$0 - 5 * $0 + 3 }
-            // graphView.graphFunction = sin
+            graphView.graphFunction = self.graphFunction
         }
     }
     
-    @IBAction func setGraphOrigin(_ sender: UITapGestureRecognizer) {
+    internal func graphFunction(x: Double) -> Double {
+        if let p = program {
+            brain.program = p
+            brain.variableValue["M"] = x
+            return brain.result
+        }
+        else {
+            return Double.nan
+        }
+    }
+    
+    
+    @IBAction internal func setGraphOrigin(_ sender: UITapGestureRecognizer) {
         graphView.origin = sender.location(in: graphView)
     }
     
-    public func changeScale(recognizer: UIPinchGestureRecognizer) {
+    internal func changeScale(recognizer: UIPinchGestureRecognizer) {
         switch recognizer.state {
         case .changed, .ended:
             graphView.scale *= recognizer.scale
@@ -41,7 +65,7 @@ class GraphViewController: UIViewController {
         }
     }
     
-    public func moveGraph(recognizer: UIPanGestureRecognizer) {
+    internal func moveGraph(recognizer: UIPanGestureRecognizer) {
         let origin = graphView.origin
         switch recognizer.state {
         case .changed, .ended:
@@ -52,5 +76,7 @@ class GraphViewController: UIViewController {
             break
         }
     }
+    
+    
 
 }

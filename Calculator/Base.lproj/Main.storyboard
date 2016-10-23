@@ -31,14 +31,27 @@
                     <view key="view" contentMode="redraw" id="Ukk-LX-oJS" customClass="GraphView" customModule="Calculator" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="trT-IU-EVM">
+                                <frame key="frameInset" minX="199" minY="615" width="160" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Yan-x3-Ldp" firstAttribute="top" secondItem="trT-IU-EVM" secondAttribute="bottom" constant="20" id="8ra-1Q-mJL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="trT-IU-EVM" secondAttribute="trailing" id="YqN-hk-aqA"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="scale">
                                 <real key="value" value="50"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
+                            <outlet property="functionLabel" destination="trT-IU-EVM" id="vzl-sy-3PR"/>
                             <outletCollection property="gestureRecognizers" destination="D7z-5q-GNd" appends="YES" id="wnj-6h-JK5"/>
                         </connections>
                     </view>
@@ -53,7 +66,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1126" y="-610"/>
+            <point key="canvasLocation" x="1125.5" y="-610.5"/>
         </scene>
         <!--Calculator-->
         <scene sceneID="tne-QT-ifu">
@@ -692,15 +705,15 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="kto-JZ-ihl"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="dbr-Gp-Mcc"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w6n-XQ-yLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1404" y="176.76161919040482"/>
+            <point key="canvasLocation" x="1271" y="177"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="KHj-ls-bLK"/>
+        <segue reference="FYv-ZV-Ant"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -11,6 +11,8 @@ import UIKit
 @IBDesignable
 class GraphView: UIView {
     
+    @IBOutlet weak var functionLabel: UILabel!
+    
     @IBInspectable public var scale: CGFloat = 50 {
         didSet {
             self.setNeedsDisplay()
