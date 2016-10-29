@@ -47,7 +47,7 @@ class GraphView: UIView {
     }
     
     private func updateFunctionDescription() {
-        self.functionLabel.text = functionDescription
+        self.functionLabel?.text = functionDescription
     }
     
     private func drawAxes() {
