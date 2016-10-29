@@ -13,6 +13,9 @@ class GraphView: UIView {
     
     @IBOutlet weak var functionLabel: UILabel!
     
+    public var functionDescription = " "
+    
+    
     @IBInspectable public var scale: CGFloat = 50 {
         didSet {
             self.setNeedsDisplay()
@@ -40,6 +43,11 @@ class GraphView: UIView {
         
         drawAxes()
         drawGraph()
+        updateFunctionDescription()
+    }
+    
+    private func updateFunctionDescription() {
+        self.functionLabel.text = functionDescription
     }
     
     private func drawAxes() {

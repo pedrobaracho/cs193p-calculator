@@ -32,8 +32,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="trT-IU-EVM">
-                                <frame key="frameInset" minX="199" minY="615" width="160" height="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="FUNCTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="trT-IU-EVM" userLabel="FUNCTION">
+                                <frame key="frameInset" minX="207" minY="627" width="160" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -43,7 +43,7 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Yan-x3-Ldp" firstAttribute="top" secondItem="trT-IU-EVM" secondAttribute="bottom" constant="20" id="8ra-1Q-mJL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="trT-IU-EVM" secondAttribute="trailing" id="YqN-hk-aqA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="trT-IU-EVM" secondAttribute="trailing" constant="20" id="YqN-hk-aqA"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="scale">
@@ -618,6 +618,11 @@
                                                                 <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="EVm-hA-t9c"/>
+                                                            </mask>
+                                                        </variation>
                                                         <connections>
                                                             <action selector="save" destination="BYZ-38-t0r" eventType="touchUpInside" id="7X3-fZ-W13"/>
                                                         </connections>
@@ -639,6 +644,11 @@
                                                                 <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="6rH-OZ-gs1"/>
+                                                            </mask>
+                                                        </variation>
                                                         <connections>
                                                             <action selector="load" destination="BYZ-38-t0r" eventType="touchUpInside" id="7xf-My-reM"/>
                                                         </connections>
@@ -662,6 +672,10 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="fZ1-Jp-eGo" firstAttribute="height" secondItem="TZY-yE-edu" secondAttribute="height" id="7Fs-CN-5wQ"/>
+                                                    <constraint firstItem="Gv2-sM-kpC" firstAttribute="height" secondItem="TZY-yE-edu" secondAttribute="height" id="RSh-5c-Vdp"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <constraints>

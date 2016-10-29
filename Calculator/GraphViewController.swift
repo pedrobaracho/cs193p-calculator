@@ -11,20 +11,7 @@ import UIKit
 class GraphViewController: UIViewController {
     
     private var brain = CalculatorBrain()
-    public var program: CalculatorBrain.PropertyList? {
-        didSet {
-            /*graphView.functionLabel?.text? = ""
-            if let arrayOfOps = program as? [CalculatorBrain.PropertyList] {
-                for i in arrayOfOps {
-                    if let op = i as? String {
-                        graphView.functionLabel.text? += op + " "
-                    }
-                }
-             
-            }
- */
-        }
-    }
+    public var program: CalculatorBrain.PropertyList?
     
     @IBOutlet weak var graphView: GraphView! {
         didSet {
@@ -35,6 +22,10 @@ class GraphViewController: UIViewController {
             graphView.addGestureRecognizer(UIPanGestureRecognizer(
                 target: self, action: #selector(self.moveGraph(recognizer:))))
             
+            if let p = program {
+                brain.program = p
+                graphView.functionDescription = brain.currentDescription
+            }
             graphView.graphFunction = self.graphFunction
         }
     }
