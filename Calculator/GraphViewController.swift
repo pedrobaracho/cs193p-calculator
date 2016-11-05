@@ -13,6 +13,14 @@ class GraphViewController: UIViewController {
     private var brain = CalculatorBrain()
     public var program: CalculatorBrain.PropertyList?
     
+    
+    override func viewDidLoad() {
+        guard program != nil else {
+            self.removeFromParentViewController()
+            return
+        }
+    }
+    
     @IBOutlet weak var graphView: GraphView! {
         didSet {
             graphView.origin = CGPoint(x: graphView.bounds.midX, y: graphView.bounds.midY)
