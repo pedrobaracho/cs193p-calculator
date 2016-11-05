@@ -153,24 +153,29 @@ class CalculatorViewController: UIViewController {
         }
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if brain.isPartialResult {
+            let shakeAnimation = CABasicAnimation(keyPath: "position")
+            shakeAnimation.duration = 0.07
+            shakeAnimation.repeatCount = 4
+            shakeAnimation.autoreverses = true
+            shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: view.center.x - 10, y: view.center.y - 5))
+            shakeAnimation.toValue = NSValue(cgPoint: CGPoint(x: view.center.x + 10, y: view.center.y + 5))
+            view.layer.add(shakeAnimation, forKey: "position")
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var destinationvc = segue.destination
         if let navcon = destinationvc as? UINavigationController {
             destinationvc = navcon.visibleViewController ?? destinationvc
         }
         if let graphVC = destinationvc as? GraphViewController {
-            if brain.isPartialResult {
-                let shakeAnimation = CABasicAnimation(keyPath: "position")
-                shakeAnimation.duration = 0.07
-                shakeAnimation.repeatCount = 4
-                shakeAnimation.autoreverses = true
-                shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: view.center.x - 10, y: view.center.y - 5))
-                shakeAnimation.toValue = NSValue(cgPoint: CGPoint(x: view.center.x + 10, y: view.center.y + 5))
-                view.layer.add(shakeAnimation, forKey: "position")
-            }
-            else {
-                graphVC.program = brain.program
-            }
+            graphVC.program = brain.program
         }
     }
 }
